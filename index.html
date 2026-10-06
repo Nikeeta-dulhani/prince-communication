@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-commerce website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="LOGO.png" width="60" height="50" alt="PRINCE COMMUNICATION">
+                    <span class="small">PRINCE COMMUNICATION</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#products" id="accessoriesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Accessories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+                                <li><a class="dropdown-item" href="#chargers">Chargers</a></li>
+                                <li><a class="dropdown-item" href="#headphones">Headphones</a></li>
+                                <li><a class="dropdown-item" href="#covers">Mobile Covers</a></li>
+                                <li><a class="dropdown-item" href="#protectors">Mobile Protectors</a></li>
+                                <li><a class="dropdown-item" href="#otg">OTG Pins</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item">
+                            <div class="search-container">
+                                <button class="search-icon" onclick="showSearchBar()">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div id="search-bar" class="collapse">
+                                    <input type="text" placeholder="Search">
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="javascript:void(0)" onclick="toggleCart()">
+
+                                <i class="bi bi-cart"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    id="cart-count">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup1.html"><i class="bi bi-person-circle"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        <section class="hero py-3" id="home">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="mt-4 mt-md-0">
+                        <img src="accessories.avif" alt="Profile">
+                    </div>
+                    <div class="intro">
+                        <h1 class="text-center">Welcome to Prince Communication</h1>
+                        <p class="text-center">Your one-stop shop for <a href=""> mobile accessories</a> & <a
+                                href="">services</a>
+                        </p>
+                    </div>
+                    <div id="scroll-btn">
+                        <a class="back-to-top " onclick="scrollToTop()">
+                            <i class="arrow-up"><i class="bi bi-chevron-double-down"></i>
+                        </i></a>
+                    </div>
+
+        </section>
+
+        <section class="py-3" id="chargers">
+            <div class="container">
+                <div class="headings">
+                    <h1 class="text-center mb-4 mt-3"> Mobile-Chargers</h1>
+                </div>
+
+                <div class="position-relative mt-4">
+
+                    <button
+                        class="scroll-btn left-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                        class="scroll-btn right-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+
+                    <div class="scroll-container d-flex overflow-auto px-2" id="productRow">
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="chargers/infinix.jpeg" class="card-img-top" alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Infinix-Charger</h5>
+                                <p class="card-text">Rs. 700</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="chargers/samsung.jpeg" class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Iphone-Charger</h5>
+                                <p class="card-text">Rs. 1500</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="chargers/realme.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Realme-Charger</h5>
+                                <p class="card-text">Rs. 800</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src=" chargers/iphone.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Samsung-Charger</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="chargers/VIVO-CHARGER-2-1A-Wall-SDL246615537-1-1b55b.jpg" class="card-img-top"
+                                alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Vivo-Charger</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="chargers/oppo.png" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Oppo-Charger</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-3" id="headphones">
+            <div class="container">
+                <div class="headings">
+                    <h1 class="text-center mb-4 mt-3"> Headphones</h1>
+                </div>
+
+                <div class="position-relative mt-4">
+
+                    <button
+                        class="scroll-btn left-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                        class="scroll-btn right-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+
+                    <div class="scroll-container d-flex overflow-auto px-2" id="productRow">
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/Baseus-couteurs-intra-auriculaires-C17-type-c-casque-d-coute-filaire-avec-micro-pour-t-l1.jpg"
+                                class="card-img-top" alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-1</h5>
+                                <p class="card-text">Rs. 700</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/bfe66c494ab0c013e54e4e6a258a8d02.jpg_720x720q80.jpg"
+                                class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-2</h5>
+                                <p class="card-text">Rs. 1500</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/images.png" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-3</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/images.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-4</h5>
+                                <p class="card-text">Rs. 800</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/earfun-air-wireless-earbuds.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-5</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="headphones/download.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Headphones-6</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-3" id="covers">
+            <div class="container">
+                <div class="headings">
+                    <h1 class="text-center mb-4 mt-3">Mobile-Covers</h1>
+                </div>
+
+                <div class="position-relative mt-4">
+
+                    <button
+                        class="scroll-btn left-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                        class="scroll-btn right-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+
+                    <div class="scroll-container d-flex overflow-auto px-2" id="productRow">
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="mobile-covers/BigSpacePink_5aa6f2ee-b0da-44bb-80ad-5a735294cdb7.jpg"
+                                alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-1</h5>
+                                <p class="card-text">Rs. 700</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src=" mobile-covers/images (1).jpeg" class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-2</h5>
+                                <p class="card-text">Rs. 1600</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="mobile-covers/images (2).jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-3</h5>
+                                <p class="card-text">Rs. 2000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="mobile-covers/images.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-4</h5>
+                                <p class="card-text">Rs. 800</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="mobile-covers/for-boys-pakistan-mobile-covers.jpg" class="card-img-top"
+                                alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-5</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="mobile-covers/fancy-mobile-covers.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobilecover-6</h5>
+                                <p class="card-text">Rs. 900</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-3" id="protectors">
+            <div class="container">
+                <div class="headings">
+                    <h1 class="text-center mb-4 mt-3">Mobile-Protectors</h1>
+                </div>
+
+                <div class="position-relative mt-4">
+
+                    <button
+                        class="scroll-btn left-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                        class="scroll-btn right-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+
+                    <div class="scroll-container d-flex overflow-auto px-2" id="productRow">
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="protector/27183d0111fdf4a6c65a050aca956eee.jpg_720x720q80.jpg" alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-1</h5>
+                                <p class="card-text">Rs. 900</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src=" protector/b788e677d2e161208e2f429c8ec571df.jpg_720x720q80.jpg"
+                                class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-2</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="protector/IMG_8972.webp" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-3</h5>
+                                <p class="card-text">Rs. 900</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="protector/images.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-4</h5>
+                                <p class="card-text">Rs. 800</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="protector/Buy-MOFI-Vivo-Y30-2.5D-9H-Full-Screen-Protector-in-Pakistan-at-Dab-Lew-Tech-1.jpg"
+                                class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-5</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="protector/Buy-FLOLAB-NanoArmour-for-iPhone-11-Pro-Max-Full-Cover-Privacy-Screen-Protector-in-Pakistan-at-Dab-Lew-Tech-2.jpg"
+                                class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">mobileprotector-6</h5>
+                                <p class="card-text">Rs. 600</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-3" id="otg">
+            <div class="container">
+                <div class="headings">
+                    <h1 class="text-center mb-4 mt-3">Connectivity</h1>
+                </div>
+
+                <div class="position-relative mt-4">
+
+                    <button
+                        class="scroll-btn left-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                        class="scroll-btn right-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+
+                    <div class="scroll-container d-flex overflow-auto px-2" id="productRow">
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="connectiviy/images (1).jpeg" alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">OTG-1</h5>
+                                <p class="card-text">Rs. 600</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src=" connectiviy/images.jpeg" class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">OTG-2</h5>
+                                <p class="card-text">Rs. 500</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="connectiviy/USB-OTG-CABLE-FOR-ANDROID-MOBILES.jpg" class="card-img-top"
+                                alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">OTG-3</h5>
+                                <p class="card-text">Rs. 1000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="connectiviy/usb hubs.jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">USB-HUBS</h5>
+                                <p class="card-text">Rs. 800</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="connectiviy/images (2).jpeg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">EVO-DEVICE 1</h5>
+                                <p class="card-text">Rs. 5000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="card mx-2 flex-shrink-0 product-card">
+                            <img src="connectiviy/old-4gdevices.png" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">EVO-DEVICE 2</h5>
+                                <p class="card-text">Rs. 6000</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="py-5 bg-light" id="services">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Services</h2>
+            <div class="row text-center">
+
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-credit-card-2-front-fill fs-1 text-primary"></i>
+                            <h5 class="card-title mt-3">Online Billing & Payment</h5>
+                            <p class="card-text">Pay your utility and mobile bills securely through our reliable online
+                                payment
+                                system.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-sim-fill fs-1 text-success"></i>
+                            <h5 class="card-title mt-3">SIM Packages Activation</h5>
+                            <p class="card-text">Activate affordable internet, call, and SMS packages for all networks
+                                at one place.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-phone-fill fs-1 text-warning"></i>
+                            <h5 class="card-title mt-3">Mobile Balance Recharge</h5>
+                            <p class="card-text">Recharge mobile balance for any network instantly through our fast and
+                                secure
+                                service.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-2" id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+
+
+                <div class="col-md-6 mb-4">
+                    <h5 class=" mt-3">Get in Touch</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2 mt-5"></i>Shahi Bazaar Salehpat,Sukkur,Sindh, Pakistan</p>
+                    <p><i class="bi bi-telephone-fill me-2 mt-3"></i>+92 300 1234567</p>
+                    <p><i class="bi bi-envelope-fill me-2 mt-3"></i>info@princecommunication.pk</p>
+                </div>
+
+
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4"
+                                placeholder="Type your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class=" text-white text-center py-4" style="background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+        <div class="container">
+            <p class="mb-2">© 2025 Prince Communication. All rights reserved.</p>
+            <div>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+
+                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+            </div>
+        </div>
+
+
+        <div id="cart-sidebar" class="position-fixed end-0 top-0 bg-white shadow-lg p-3"
+            style="width: 350px; height: 100vh; z-index: 1050; display: none; overflow-y: auto;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Your Cart</h5>
+                <button class="btn-close" onclick="toggleCart()"></button>
+            </div>
+            <ul id="cart-items" class="list-group mb-3"></ul>
+            <div class="d-flex justify-content-between fw-bold">
+                <span>Total:</span>
+                <span id="cart-total">Rs. 0</span>
+            </div>
+        </div>
+        <button id="chatbotToggle"> <i class="bi bi-chat-dots"></i></button>
+
+        <div id="chatbotContainer">
+            <div class="chat-header">AI Chatbot</div>
+            <div class="chat-box" id="chatBox"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type a message..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

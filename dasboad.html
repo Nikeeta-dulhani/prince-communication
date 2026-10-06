@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Prince Communication</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: #343a40;
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+
+    .sidebar.hidden {
+      transform: translateX(-100%);
+    }
+
+    .sidebar .navbar-brand {
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .sidebar .nav-link {
+      color: #ccc;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
+      background-color: #495057;
+      color: #fff;
+    }
+
+    /* Layout */
+    .content-wrapper {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .stat-card {
+      background-color: white;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: gray;
+    }
+
+    /* Mobile menu toggle button */
+    .menu-toggle {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1100;
+    }
+
+/* Hide only on mobile by default */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .stat-card {
+    margin-top:20px;
+  }
+}
+
+/* Toggle button only on mobile */
+.menu-toggle {
+  display: none;
+  margin-bottom:20px;
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Toggle -->
+  <button class="btn btn-dark menu-toggle" onclick="toggleSidebar()">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="content-wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <a class="navbar-brand d-flex flex-column align-items-center gap-2" href="#">
+        <img src="LOGO.png" width="60" height="50" alt="PRINCE COMMUNICATION">
+        <span>PRINCE COMMUNICATION</span>
+      </a>
+      <nav class="nav flex-column mt-4">
+        <a class="nav-link active" href="#">Dashboard</a>
+        <a class="nav-link" href="signup1.html">Profile</a>
+        <a class="nav-link" href="#">Messages</a>
+        <a class="nav-link" href="#">Reports</a>
+        <a class="nav-link" href="#">Settings</a>
+        <a class="nav-link" href="#">Analytics</a>
+        <a class="nav-link" href="#">Help</a>
+        <a class="nav-link" href="#">Support</a>
+        <a class="nav-link" href="#" onclick="handleLogout()">Logout</a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container-fluid py-4">
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="card stat-card p-3">
+              <div class="stat-value" id="totalUsers">0</div>
+              <div class="stat-label">Total Users</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card stat-card p-3">
+              <div class="stat-value" id="activeUsers">0</div>
+              <div class="stat-label">Active Users</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card stat-card p-3">
+              <div class="stat-value" id="revenue">$12.4K</div>
+              <div class="stat-label">Revenue</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h6 class="text-center">User Activity</h6>
+              <canvas id="lineChart" height="200"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h6 class="text-center">Sales Overview</h6>
+              <canvas id="barChart" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Toggle for mobile
+    function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("show");
+}
+
+    // Stats init
+    window.onload = function () {
+      const totalUsers = localStorage.getItem("totalUsers") || 1250;
+      const activeUsers = localStorage.getItem("activeUsers") || 0;
+      const revenue = "$12.4K";
+
+      document.getElementById("totalUsers").textContent = totalUsers;
+      document.getElementById("activeUsers").textContent = activeUsers;
+      document.getElementById("revenue").textContent = revenue;
+    };
+
+    // Charts
+    const ctxLine = document.getElementById('lineChart').getContext('2d');
+    new Chart(ctxLine, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Active Users',
+          data: [120, 190, 300, 500, 200, 300, 400],
+          borderColor: '#9ef2af',
+          backgroundColor: '#9ef2af',
+          tension: 0.4
+        }]
+      },
+      options: { plugins: { legend: { display: false } }, responsive: true }
+    });
+
+    const ctxBar = document.getElementById('barChart').getContext('2d');
+    new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Sales',
+          data: [3000, 4500, 3200, 6000, 4800, 5200],
+          backgroundColor: '#9ef2af'
+        }]
+      },
+      options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // Logout
+    function handleLogout() {
+      let activeUsers = parseInt(localStorage.getItem("activeUsers") || "0");
+      if (activeUsers > 0) {
+        activeUsers -= 1;
+        localStorage.setItem("activeUsers", activeUsers);
+      }
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
